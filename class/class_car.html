@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Car {
+
+            #price2 = 1000;
+            #price;
+            constructor(modelName, modelYear, type, price) {
+                this.modelName = modelName;
+                this.modelYear = modelYear;
+                this.type = type;
+                this.#price = price;
+            }
+            getModelName() {
+                return this.modelName;
+            }
+            getModelYear() {
+                return this.modelYear;
+            }
+            getType() {
+                return this.type;
+            }
+            getPrice() {
+                return this.#price;
+            }
+            setModelName(modelName) {
+                this.modelName;
+            }
+            setModelYear(modelYear) {
+                this.modelYear;
+            }
+            setType(type) {
+                this.type;
+            }
+            setPrice(price) {
+                if(price<0) {
+                    this.#price = 0;
+                }else {
+                    this.#price = price;
+                }
+            }
+            run() {
+                console.log("차가달립니다.")
+            }
+        }
+
+        //getter함수는 리턴해주는 함수
+        //settter함수는 업데이트 해주는 함수
+        let ionic = new Car("아이오닉", "2021", "e", 4000);
+        console.log(ionic.price2);
+        ionic.setPrice(-1000);
+        console.log(ionic.getPrice());  //#price 외부에서 접근을 못함 // 호출하려면 price값을 리턴해주는 getPrice()함수를 호출해줘야함
+
+        class ElectricCar extends Car {
+            constructor(modelName, modelYear, type, price, chargeTime) {
+                super(modelName, modelYear, type, price);
+                this.chargeTime = chargeTime;
+            }
+            run() {
+                super.run()
+                console.log("전기차가 달립니다.")
+            }
+        }
+        let elIonic = new ElectricCar("전기아이오닉", "2022", "e", 6000, 3);
+        elIonic.run();
+    </script>
+</body>
+</html>

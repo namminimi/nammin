@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            display: flex;
+            width: 20%;
+            justify-content: space-between;
+        }
+
+        div {
+            background-color: red;
+            transition: 0.5s;
+            height: 0;
+        }
+        .on {
+            
+            width: 100%;
+            height: 150px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>list1</li>
+            <li>list2</li>
+            <li>list3</li>
+            <li>list4</li>
+        </ul>
+    </div>
+    <div id="dd"></div>
+    <script>
+        let btn = document.querySelector("li:nth-child");
+        let btn1 = document.querySelector("div");
+        btn.addEventListener("mouseenter", function(){
+            document.querySelector("div").classList.toggle("on");
+        }) 
+        btn.addEventListener("mouseleave", function(){
+            document.querySelector("div").classList.remove("on");
+        }) 
+    </script>
+</body>
+</html>

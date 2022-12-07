@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*빈 객체 user2를 만듭니다.
+        user2에 키가 name, 값이 john인 프로퍼티를 추가하세요
+        user2에 키가 surname, 값이 Smith 인 프로퍼티를 추가하세요.
+        name2의 값을 pete로 수정해보세요
+        user2에서 프로퍼티 name을 삭제하세요 */
+        let user2 = {
+            name: "John",
+            surname: "Smith"
+        };
+
+        
+
+        user2.name = "pete";
+        delete user2.name;
+        console.log(user2);
+
+        let salaries = {
+            John: 100,
+            Ann: 160,
+            Pete: 130
+        }
+
+        let s = 0;
+        for (let i = 0; i <Object.values(salaries).length; i++) {
+            console.log(s += Object.values(salaries)[i]);
+        }
+
+        // for in 문 사용
+
+        console.log(Object.values(salaries));
+    </script>
+</body>
+</html>

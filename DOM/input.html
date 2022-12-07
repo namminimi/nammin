@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="userName" value="수요일">
+    <button onclick="inputPrint()">클릭</button>
+    <ul>
+        <li>list1<span>span</span></li>
+        <li>list2<span>span</span></li>
+        <li>list3<span>span</span></li>
+        <li>list4<span>span</span></li>
+    </ul>
+    <div id="box01"><h1>안녕하세요</h1></div>
+    <script>
+        const input = document.querySelector("#userName");
+        console.log(input);
+        function inputPrint() {
+            // console.log(input.value);
+            input.value= "";
+        }
+        //parentElement
+        function liClick(aa) {
+            // console.log(aa.nextElementSibling); //다음에 이웃하는 요소  list1을 클릭하면 콘솔에 list2가뜸
+            console.log(aa.previousElementSibling); //전 이웃하는 요소  list2를 클릭하면 콘솔에 list1이뜸
+            console.log(aa.parentElement); //부모를 콘솔에서 찾아줌
+        }
+        const ul = document.querySelector("ul")  //ul에 이벤트를 준다해도 그 자식들에게 이벤트를 전이 해준다
+        ul.addEventListener("click", function(e){
+            console.log(e);                      // target을 설정해줄경우 ul의 자식들중 li를 클릭했는지 span을 클릭했는지 알수있음
+            let li = e.target.parentElement;  // parentelement를 설정해주면 클릭한 타겟의 부모가 콘솔에 입력됨 그 부모를 확인해보면 타겟에 클릭한 요소가 찍힘
+            console.log(li);
+        }) 
+        /* console.log(box01.innerHTML);   //html은 태그 미포함 글만 입력
+        console.log(box01.innerText); */   //text는 태그 포함해서 입력
+        box01.innerHTML = "<h2>즐거운 수요일</h2>";
+        box01.innerText = "<h2>즐거운 수요일</h2>";
+        // ul.append("곧 쉬는 시간");
+        const li = document.createElement('li');
+        li.innerHTML = "새로운<span>li</span>입니다.";
+        ul.after(li);
+        
+        
+    </script>
+</body>
+</html>

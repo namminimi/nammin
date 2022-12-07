@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 800px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button onclick="background('pink')">pink색상</button>
+    <button onclick="background('red')">red색상</button>
+    <button onclick="background('blue')">blue색상</button>
+    <button onclick="background('green')">green색상</button>
+    <button onclick="bgColorView()">배경색상열기</button>
+    <script>
+        function background(color) {
+            document.querySelector("div").style.backgroundColor = color;
+        }
+
+        function bgColorView() {
+            let div = document.querySelector('div');
+            /* let bgColor = div.style.backgroundColor; */ //색으로 나옴
+            let bgColor = window.getComputedStyle(div).getPropertyValue('background-color');//rgb로 받아옴
+            alert(bgColor);
+        }
+
+        /* function pink() {
+            document.querySelector("div").style.backgroundColor = "pink";
+        }
+        function red() {
+            document.querySelector("div").style.backgroundColor = "red";
+        }
+        function blue() {
+            document.querySelector("div").style.backgroundColor = "blue";
+        }
+        function green() {
+            document.querySelector("div").style.backgroundColor = "green";
+        }*/
+    </script>
+</body>
+</html>

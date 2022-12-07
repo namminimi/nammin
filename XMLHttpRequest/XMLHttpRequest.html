@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const xhr = new XMLHttpRequest();  // 객체 생성
+        xhr.open("POST", "/posts");  //HTTP Method(POST방법(생성)), URL 정의
+        xhr.setRequestHeader("content-type", "application/json"); //헤더값 중 content-type 정의
+
+        const data = {
+            id: 2,
+            title: "XHLJttpRequest",
+            author: "Jeremy",
+        };
+
+        xhr.send(JSON.stringify(data)); //JSON.stringify를 통해 오브젝트 데이터를 문자열 형태로 변경해서 전송해야함.
+    </script>
+</body>
+</html>

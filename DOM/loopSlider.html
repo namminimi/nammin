@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #header {
+            text-align: center;
+        }
+
+        #header h1 {
+            font-size: 50px;
+        }
+        #section {
+            text-align: center;
+        }
+
+        #sit {
+            display: flex;
+            justify-content: center;
+        }
+
+        #sit p:first-child {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>타자게임</h1>
+    </div>
+    <div id="section">
+        <!-- 문제 출력 -->
+        <h2>color</h2>
+        <input type="text" id="myInput" value="">
+        <div id="sit">
+            <!-- 남은시간 출력 -->
+            <p>남은시간: <span id="timer">0</span>초</p>
+            <!-- 점수 출력 -->
+            <p>점수: <span id="score">0</span>점</p>
+        </div>
+        <button>게임종료</button>
+    </div>
+    <script>
+        //입력란 선택
+        const input = document.querySelector("#myInput");
+        //문제 출력
+        const h2 = document.querySelector("#section h2");
+        //타이머 설정
+        const timer = document.querySelector("#timer");
+        //점수 설정
+        const score = document.querySelector("#score");
+
+        let aa = "";
+        
+        //실시간 입력
+        input.addEventListener("input", function(){
+            if (aa === input.value) {
+                console.log(111);
+            }
+                
+            
+        })
+
+        let word = ["color", "yellow", "background", "mouse"];
+
+        // 단어 랜덤으로 출력해주는 함수
+        function words() {
+            let random_num = Math.floor(Math.random()*word.length);
+            aa = word[random_num];
+            h2.innerHTML = aa;
+        }
+        
+
+        //
+    </script>
+</body>
+</html>

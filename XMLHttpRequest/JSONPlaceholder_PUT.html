@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const xhr = new XMLHttpRequest(); //XMLHttpRequest 객체 생성
+        xhr.open("PUT", "https://jsonplaceholder.typicode.com/posts/1");  //POST사용하면 id값 101나옴 / 지금처럼 사용하게되면 id값 1나옴
+        //HTTP Method, url정의(가상서버 이용)
+        xhr.setRequestHeader("content-type", "application/json; charset=UTF-8"); // 헤더값 중 content-type 정의
+        xhr.send(JSON.stringify({title:"foo", body:"bar", userId:1})); //문자열로 요청 전송
+
+        xhr.onload = () => {
+            if(xhr.status === 200) {
+                //PUT 요청이 정상적으로 완료되면 200
+                const res = JSON.parse(xhr.response); //응답 데이터를 JSON.parse 함수의 JSON 객체로 변경
+                console.log(res); //응답데이터 출력
+            } else {
+                //에러발생
+                console.error(xhr.status, xhr.statusText); //응답상태와 응답메시지를 출력
+            }
+        }
+    </script>
+</body>
+</html>

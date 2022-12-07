@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        @keyframes fadein {
+            0% {opacity: 0.4;}
+            100% {opacity: 1;}
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+        }
+        .fadeImg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            animation: fadein 0.5s;
+        }
+
+        #imgnext {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            width: 38%;
+            
+        }
+
+        #imgnext button {
+            padding: 10px;
+            border-radius: 50%;
+            border: 0;
+            background-color: tomato;
+            color: #fff;
+            font-size: 18px;
+            width: 80px;
+            height: 80px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="imgnext">
+        <button id="bep" onclick="beforePic()">이전</button>
+        <button id="nep" onclick="nextPic()">다음</button>
+    </div>
+    <div class="fadeImg"><img src="./img/img_lights1.jpg" alt=""></div>
+    <div class="fadeImg"><img src="./img/img_lights2.jpg" alt=""></div>
+    <div class="fadeImg"><img src="./img/img_lights3.jpg" alt=""></div>
+    <div class="fadeImg"><img src="./img/img_lights4.jpg" alt=""></div>
+    <script>
+        let imgDivs = document.querySelectorAll(".fadeImg");
+        let indexNum = 0;
+        let nextNum;
+        let movebutton = document.querySelector("#imgnext");
+        imgDivs.forEach(div=>div.style.display = "none");
+        imgDivs[0].style.display = "block";
+        setInterval(function(){
+            nextNum = (indexNum+1) % 4;
+            imgDivs[indexNum].style.display="none";
+        imgDivs[nextNum].style.display="block";
+        indexNum = nextNum;
+        },3000)
+
+        let before = document.querySelector("#bep");
+        before.addEventListener("click", function(e){
+            nextNum = (indexNum-1) % 4;
+            imgDivs[indexNum].style.display="none";
+            imgDivs[nextNum].style.display="block";
+            indexNum = nextNum;
+        })
+
+        let next = document.querySelector("#nep");
+        next.addEventListener("click", function(e){
+            setTimeout(function(){
+                nextNum = (indexNum-1) % 4;
+                imgDivs[indexNum].style.display="none";
+                imgDivs[nextNum].style.display="block";
+                indexNum = nextNum;
+            }, 2000)
+            
+        })
+
+        
+    </script>
+</body>
+</html>
+
+
+<!-- let imgDivs = document.querySelectorAll(".fadeImg");
+        let indexNum = 0;
+        let nextNum;
+        imgDivs.forEach(div=>div.style.display = "none");
+        imgDivs[0].style.display = "block";
+        setInterval(function(){
+            nextNum = (indexNum+1) % 4;
+            imgDivs[indexNum].style.display="none";
+        imgDivs[nextNum].style.display="block";
+        indexNum = nextNum;
+        },3000) -->

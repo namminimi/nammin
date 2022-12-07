@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>회원주소<input type="text" id="address" name="address"></p>
+    <p>배송주소가 맞다면 체크해주세요<input type="checkbox" name="ok" id="submit" value="ok"></p>
+    <p>회원주소 확인<input type="text" id="addressCheck" name="addressCheck" value=""></p>
+    <script>
+        let address = document.querySelector("#address"); // address(input) 노드 선택 -> 변수선언
+        let addressCheck = document.querySelector("#addressCheck"); //addressCheck(input) 노드선택 -> 변수선언
+        let submit = document.querySelector("#submit");  //submit 노드선택 -> 변수선언
+        let addressText; // 변수선언
+
+        address.addEventListener("input", function(){ //address에 input이벤트
+            addressText = this.value;  
+            if(addressText) return;
+            else {
+                let sum = submi();
+            }
+        })
+
+        function submi() {
+            addressCheck = addressText.value;
+        }
+
+
+        submit.addEventListener("click", submi);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const xhr = new XMLHttpRequest(); //XMLHttpRequest 객체생성
+        xhr.open("GET", "/posts"); //HTTP Method, URL정의
+        xhr.setRequestHeader("content-type", "application/json"); //헤더값 중 content-type정의
+        xhr.send(); //요청전송
+
+        xhr.onload = () => {
+            if(xhr.status === 200) {  //정상적으로 응답되면 status가 200
+                const res = JSON.parse(xhr.response); //응답데이터를 JSON.parse 함수로 JSON객체로 변경
+                console.log(res);
+            } else { //에러발생
+                console.error(xhr.status, xhr.statusText); //응답상태와 응답 메시지를 출력
+            }
+        }
+    </script>
+</body>
+</html>

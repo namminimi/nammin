@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            text-align: center;
+        }
+        span {
+            font-size: 58px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span id="hours">시간</span>
+        :<span id="minutes">분</span>
+        :<span id="second">초</span>
+    </div>
+    <script>
+        let now = new Date();
+        let nowyear = now.getFullYear();
+        let nowmonth = now.getMonth()+1;
+        let date = now.getDate();
+        
+        console.log(`${now}, ${nowyear}, ${nowmonth}, ${date}`);
+
+        
+        
+        
+        let nowDateString = now.toLocaleDateString();
+        let nowTimeString = now.toLocaleTimeString();
+        console.log(`${nowDateString}, ${nowTimeString}`)
+       setInterval(() => {
+            let d= new Date();
+            hours.innerHTML = d.getHours();
+            minutes.innerHTML = d.getMinutes();
+            second.innerHTML = d.getSeconds();
+            console.log(11111);
+       }, 1000);
+        
+    </script>
+</body>
+</html>

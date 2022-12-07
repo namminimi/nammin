@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Accumulator(startNum) {
+            this.startNum = startNum;
+            this.read = function(){
+                this.startNum = this.startNum + Number(prompt("숫자를 입력하세요"));
+                return this.startNum;
+            }
+        }
+
+        let acc = new Accumulator(10);
+        console.log(acc.startNum);
+        console.log(acc.read());
+
+        /* students 생성자 함수 
+        name, age, score1, socre2
+        total() 메소드
+        기능은 score1과 score2를 더한값을 리턴
+
+        student1 객체 생성("green", 22, 85, 75)
+        student2 객체 생성("blue", 25, 80, 60) */
+
+        function Students(name, age, score1, score2) {
+            this.name = name;
+            this.age = age;
+            this.score1 = score1;
+            this.score2 = score2;
+
+            this.total = function() {
+                return this.score1 + this.score2; 
+            }
+        }
+
+        let student1 = new Students("green", 22, 85, 75);
+        let student2 = new Students("blue", 25, 80, 60);
+
+        console.log(student1.total());
+        console.log(student2.total());
+    </script>
+</body>
+</html>

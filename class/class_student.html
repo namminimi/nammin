@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Student {    
+            //student 클래스 선언
+            constructor(name, score1, score2) { 
+                //constructor함수는 class로 생성된 객체를 생성하고 초기화하기 위한 특수함수
+                this.name = name;  
+                //name이라는 기본값을 가지도록 변수 선언
+                this.score1 = score1;  
+                //score1이라는 기본값을 가지도록 변수 선언
+                this.score2 = score2;  
+                //score2이라는 기본값을 가지도록 변수 선언
+            }
+            sum() {  //sum()이라는 메소드 선언
+                return (this.score1 + this.score2);  
+                //score1 + score2 두 값을 더해서 되돌려줌
+            }
+        }
+        // 추가하거나 수정할게 생기면 extents기능 사용
+        class ExtentionStudent extends Student {    
+            //student 클래스를 extends기능에 의해 ExtentionStudent에 상속시켜줌
+            constructor(name, score1, score2, score3) {  
+                //constructor함수는 class로 생성된 객체를 생성하고 초기화하기 위한 특수함수 (score3추가)
+                super(name,score1, score2);      
+                //super 는 부모요소에 있는 변수를 호출하기위해 사용함  //내용 추가및 수정은 오버라이딩 
+                this.score3 = score3;            
+                //score3이라는 기본값을 가지도록 변수 선언
+            }
+            total() {    //total이라는 메소드 선언
+                return(super.sum() + this.score3);  
+                //sum()메서드 부모요소에서 호출하고 score3와 더해서 되돌려준다
+            }
+        }
+        let stu = new ExtentionStudent("green", 50, 60, 70);   
+        //new라는 키워드를 사용하여 생성자를 만들고 매개변수로 (green, 50, 60, 70)있음 이걸 stu로 할당
+        console.log(stu.sum());       
+        //콘솔창에 stu.sum()메서드 출력, 상속 받아서 student클래스 기능도 사용 가능
+        console.log(stu.total());     
+        //콘솔창에 stu.total()메서드 출력
+        console.log(stu.name)
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //유효범위 스코프 {}블럭
+        //let은 블럭 스코프
+        //var은 함수 스코프 스코프는 변수의주소 범위
+        var str = "green";
+        let abc = "aaa";
+        // var는 지금 안씀    //블럭 밖에 작성된 변수는 글러벌 변수 어디서든 쓸수있다
+        console.log(abc);
+        {
+            let aaa = 10;
+            var bbb = 20;   //블럭 안에 있는 변수를 지역변수/ 로컬변수
+        }
+        function myFunc() {
+                var ccc= 30;
+            }
+        
+    /*
+    1.var: 함수 스코프
+    //var은 같은 이름 선언 가능
+    변수의 선언부가 호이스팅 됨  
+    2.let: 블록 스코프
+    //let는 같은 이름 선언 불가능
+    3.const: 블록스코프
+    ///할당후 값을 변경할 수 없음.
+    선언시 할당해야함.
+    *글로벌 변수
+    최상단에서 선언한 변수
+    코드어디서는 사용가능 
+    *지역변수 (로컬변수)
+    {}안에 작성된 변수
+    스코프범위안에서 사용가능
+    */
+   const const1 = "aa";
+   let let1;
+   let1 = 30;
+   const1 = "bb";
+   var str1 = "a";
+   var str1 = "b";
+   let str2;  //undefined 은 선언은 했는데 값이 없는 상태
+   console.log(str2);
+   var str2;  //호이스팅됨 맨위로 끌러올라가서 선언만 됬다고 알려줌
+   
+    let userName= "green"
+    {
+        let userAge = 30;
+        console.log("블럭안에서 사용"+userName);
+        console.log(userAge);
+        var number1 = 10;  
+        const const2 = 10;
+    }
+    console.log("바깥에서 사용"+ userName);
+    console.log("바깥에서 사용"+userAge); //지역변수여서 에러뜸
+    console.log("바깥에서 사용"+number1);  //var은 지역변수안에있지만 다무시함 에러안뜸
+
+    function myFunc() {
+        //함수
+        var number2 = 20; //함수안에서만 사용 가능 var은 함수안에서 사용하면 지역변수 무시 못함
+        let number3 = 50;
+    }
+
+    //    호이스팅 : 제일 위로 끌어올림
+    //     var str;
+    //     console.log(str);
+    //     let abc = "aaa";
+    //     str="green";
+    </script>
+</body>
+</html>

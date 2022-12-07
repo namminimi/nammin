@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("첫번째 클래스")
+        //클래스 선언
+        class Person {
+            constructor(name, age) {  //함수 생성 및 초기화
+                this.name = name;  //name변수 기본값 설정 및 변수선언
+                this.age = age;    //age변수 기본값 설정 및 변수선언
+            }
+            speak() { //메소드
+                console.log(`${this.name} : hello!!`);  //콘솔에 name : hello!! 출력
+            }
+            eat() {
+                console.log(`${this.age} : 하이!!`)     //콘솔에 age : 안녕!! 출력
+            }
+        }
+        const min = new Person("민영", 28);     //클래스 생성자 생성
+        console.log(min);                      //min 호출
+        console.log(min.name);                 //min.name 호출
+        console.log(min.age)                   //min.age 호출
+        //메소드 호출
+        min.speak();                           //min.speak()메서드 호출
+        min.eat();                             //min.eat()메서드 호출
+        
+
+        //학생클래스 생성
+        class Student {           //클래스 선언
+            constructor(name, age, enrolled, score) {  //함수 생성 및 초기화
+                this.name = name;   //name변수 기본값 설정 및 변수선언
+                this.age = age;     //age변수 기본값 설정 및 변수선언
+                this.enrolled = enrolled;   //enrolled변수 기본값 설정 및 변수선언
+                this.score = score;     //score변수 기본값 설정 및 변수선언
+            }
+        }
+
+        const students = [  //객체가 들어간 배열 
+            new Student('A', 29, true, 45),     //배열1
+            new Student('B', 28, false, 80),    //배열2
+            new Student('C', 30, true, 90),     //배열3
+            new Student('D', 40, false, 66),    //배열4
+            new Student('E', 18, true, 66)      //배열5
+        ];
+        console.log("두번째 클래스")
+        console.log(students)     //students 배열 호출
+        
+
+        //상속과 다형성
+        
+        class Shape {  // 클래스 선언
+            constructor(width, height, color) {   //함수 생성 및 초기화
+                this.width = width;     //width변수 기본값 설정 및 변수선언
+                this.height = height;   //height변수 기본값 설정 및 변수선언
+                this.color = color;     //color변수 기본값 설정 및 변수선언
+            }
+            draw() { //메소드
+                console.log(`${this.color}로 그립니다`); //콘솔에 color 로 그립니다 호출
+            }
+            getArea() { //메소드
+                return this.width * this.height;   // width * height 곱해서 돌려줌
+            }
+        }
+
+        //상속 키워드 extends
+        class Rectangle extends Shape {  
+            //Rectangle 클래스가 Shape 기능을 상속받음 (추가및 수정 가능(오버라이딩))
+
+            //메소드 재정의
+            //오버라이딩
+            //필요한 함수만 재정의한다
+            draw() {
+                super.draw(); //super는 부모요소를 가리킴(부모에서 draw() 메서드 호출)
+                console.log("사각형을 그립니다.")  //콘솔에 사각형 그립니다 호출
+            }
+        }
+        class Triangle extends Shape {
+            //Triangle 클래스가 Shape 기능을 상속받음 (추가및 수정 가능(오버라이딩))
+            draw() {
+                super.draw(); //super는 부모요소를 가리킴 (부모에서 draw() 메서드 호출)
+                console.log("삼각형을 그립니다") //콘솔에 삼각형 그립니다 호출
+            }
+
+        }
+        const rectangle = new Rectangle(20, 20, 'blue');  //new 키워드를 사용하여 Rectangle 생성자 생성
+        console.log("아래쪽 세번째 클래스")
+        rectangle.draw();  //rectangle클래스 draw 메서드 호출
+        console.log(rectangle.getArea());  //콘솔에 rectangle.getArea()메서드 호출
+        console.log(rectangle); //콘솔에 rectangle 호출
+        
+
+        const triangle = new Triangle(20, 40, "yellow"); //new 키워드를 사용하여 Triangle 생성자 생성
+        triangle.draw();   //triangle클래스 draw 메서드 호출
+        console.log(triangle.getArea()); //콘솔에 rectangle.getArea()메서드 호출
+        console.log(triangle);  //콘솔에 triangle 호출
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="divbox"></div>
+    <table id="table1"></table>
+    <script>
+        let userHtml = [];
+        let userList = [
+        {name: "그린", email: "네이버"},
+        {name: "블루", email: "네이버"}, 
+        {name: "핑크", email: "네이버"}
+        //key          value
+    ]
+    for (let user of userList) {
+        userHtml.push("<tr>");
+        userHtml.push("<td>"+ user.name + "</td>");
+        userHtml.push("<td>"+ user.email + "</td>");
+        userHtml.push("</tr>");
+    }
+    document.querySelector("#table1").innerHTML = userHtml.join("");
+    </script>
+</body>
+</html>

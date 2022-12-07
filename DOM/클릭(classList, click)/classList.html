@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 1000px;
+            height: 200px;
+            transition: 0.5s;
+            background-color: pink;
+        }
+
+        .on {
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <button>클릭하세요</button>
+    <div class="on"></div>
+    <script>
+        //버튼을 클릭했을 때 div의 클래스를 on으로 지정
+        let btn = document.querySelector("button"); //버튼 태크 선택/선언
+        btn.addEventListener("click", function(){  //클릭이벤트 사용
+            document.querySelector("div").classList.toggle ("on"); //toggle사용으로 클릭할때마다 on클래스 추가 제거 자동으로 가능
+            if(document.querySelector("div").classList.contains("on")) { //on 클래스가 있을경우 콘솔로그에 있다고 뜸/ 없을경우 없다고 뜸
+                console.log("on클래스가 있습니다.");
+            }else {
+                console.log("on클래스가 없습니다.");
+            }
+        })
+    </script>
+</body>
+</html>

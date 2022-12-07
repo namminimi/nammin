@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        div ul{
+            display: flex;
+            margin: 0 auto;
+            text-align: center;
+        }
+        ul li {
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <h2>로또 번호 출력하기</h2>
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+        </ul>  
+    </div>
+    <script>
+        let num = [];
+        // let numbers = Math.floor(Math.random()*45)
+        for (i=1; i<=45; i++) {
+            num.push(i);
+        }
+        
+        let li = "";
+        let num2 = [];
+        function lucky() {
+            for(let j=1; j<=6; j++) {
+                let lottery = Math.floor(Math.random()* num.length);
+                console.log(num[lottery]);
+                num2.push(num[lottery]);
+                num.splice(lottery,1);
+                console.log(num2);
+                // li += `<li>${num[lottery]}</li>`;
+            }
+            // document.querySelector("ul").innerHTML = li;
+        }
+
+        lucky();
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* for (초기값; 조건; 증감) {
+            실행코드
+        } */
+       /*  for (let i = 10; i > 0; i--) {
+            console.log(i)
+            if(i===5) {
+                continue;
+            }
+            console.log(i);
+        } */
+
+        
+
+        /* while(true) {
+            let answer = Number(prompt("숫자를 입력해주세요"));
+            console.log(answer);
+            if(!answer || isNaN(Number(answer))) {
+                break;
+            }
+        } */
+
+        /* for
+        13579 만 출력(continue 사용) */
+
+        // for (let i = 1; i < 10; i++) {
+        //     if(i % 2 == 0) {
+        //         continue;
+            
+        //     }
+        //     console.log(i);
+        // }
+
+       /*  if 예제
+        1. 년도를 입력받는다
+        2. 해당년도가 윤년이면 윤년입니다를 추력
+ */
+        /* while (true) {
+            let userYear = prompt("연도를 입력해주세요");
+
+            if (userYear % 4 == 0) {
+                if (userYear % 100 == 0 && userYear % 4 == 0) {
+                    if (userYear % 4 == 0 && userYear % 400 == 0) {
+                    console.log("윤년입니다.");
+                    break;
+                   } 
+                   console.log("평년입니다.");
+                   break;
+                }
+                console.log("윤년입니다."); 
+                break;
+            } else {
+                break;
+                }
+        }     */
+/* 
+        let year = Number(prompt("년도를 입력하세요"));
+        
+        if(year % 4 === 0) {
+            if(year % 100 === 0) {
+                if(year % 400 === 0) {
+                    console.log("윤년입니다.");
+                } else {
+                    console.log("평년입니다.")
+                }
+            }else {
+                console.log("윤년입니다.")
+            }
+        } */
+
+        /* while (true) {
+            let numbers = Number(prompt("숫자를 입력해주세요"));
+            if (numbers >= 100) {
+                break;
+            } else {
+                console.log(numbers);
+            }
+        } */
+
+        let num;
+        
+        do {
+            num = prompt("100을 초과하는 숫자를 입력하세요");
+            console.log(num);
+        } while(num <= 100 && num)
+        
+    </script>
+</body>
+</html>

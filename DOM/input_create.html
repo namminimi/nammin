@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #wrap {
+            background-color: purple;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 30px;
+        }
+
+        #listheader {
+            color: #fff;
+            font-size: 30px;
+        }
+
+        #todolist {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #todolist input:first-child{
+            width: 500px;
+            height: 30px;
+            border-radius: 15px;
+            outline: 0;
+            border: 0;
+            margin-right: 30px;
+        }
+
+        #todolist button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="listheader">
+            <p>TO do list</p>
+        </div>
+        <div id="todolist">
+            <input type="text" id="search" value="">
+            <button onclick="inputPrint()">클릭</button>
+        </div>
+    </div>
+
+    <script>
+        const input = document.querySelector("#search");
+        const div = document.querySelector("#todolist");
+        const wrap = document.querySelector("#wrap");
+        
+
+        function inputPrint() {
+            const div2 = document.createElement("div");
+            div2.innerHTML = input.value;
+            wrap.after(div2);
+            input.value = ""; 
+        }
+        
+        
+            
+            
+        
+    </script>
+</body>
+</html>

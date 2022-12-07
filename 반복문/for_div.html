@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        
+    </div>
+    <script>
+        let line = 10;
+        let p = "";
+        for(let i = 1; i< 10; i++) {
+            p = p + "<p>";
+            for(let j = 1; j < line-i; j++) {
+                p = p + "  ";   
+            }
+            for(let k = 1; k < i; k++) {
+                p = p + "*";
+            }
+
+            p = p + "\n";
+            p = p + "</p>";
+        }
+
+       /*  var line = 5;
+        var result = "";
+
+        for (var i = 1; i < line*2; i+=2) {
+            result += "<p>"
+        for (var j = 1; j < ((line * 2) - i) / 2 ; j++) {
+            result += " ";
+        }
+        for( var l=1; l<=i;l++){
+            result += "*";
+        }
+        for (var k = 1; k < ((line * 2) - i) / 2; k++) {
+            result += " ";
+        }
+        result += "\n";
+        }
+        console.log(result); */
+
+
+        // let i = 0;
+
+        // while(i<3) {
+        //     alert(`number${i}!`);
+        //     i++;
+        // }
+        
+        document.querySelector("div").innerHTML= p;
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+    </ul>
+    <script>
+        let arr1 = ["💕","😊","😂","😍","🐱‍👤"];
+        /* console.log(arr1[0]);
+        console.log(arr1[1]);
+        console.log(arr1[2]);
+        console.log(arr1[3]);
+        console.log(arr1[4]); */
+
+        /* for (let i = 0; i < arr1.length; i++) {
+            console.log(arr1[i])
+        }
+
+        for(let v of arr1) {     
+            // 파이썬에서 for a in 배열 과 비슷함
+            console.log(v);
+        } */
+
+        arr1.forEach(function(v, i, arr) {
+            // 첫번째 자리(값), 두번째 자리(인덱스순번), 세번째자리(배열 자신(인덱스 전체))
+            console.log(v)
+            console.log(i)
+            console.log(arr);
+        })
+
+        arr1.forEach((v, i, arr) =>{
+            // 첫번째 자리(값), 두번째 자리(인덱스순번), 세번째자리(배열 자신(인덱스 전체))
+            console.log(v)
+            console.log(i)
+            console.log(arr);
+        })
+
+        let lis = document.querySelectorAll("li");
+        console.log(lis);
+        for (let i =0; i <lis.length; i++) {
+            lis[i].style.background = "yellow";
+        }
+
+        lis.forEach(li => 
+            li.style.background="red");
+    </script>
+</body>
+</html>

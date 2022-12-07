@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const xhr = new XMLHttpRequest(); //XMLHttpRequest 객체 생성
+        xhr.open("GET", "https://jsonplaceholder.typicode.com/posts"); //HTTP Method, URL 정의
+        //1번 요소만 가지고 오고싶으면 "https://jsonplaceholder.typicode.com/posts/1" id는 끝에 :id
+        xhr.setRequestHeader("content-type", "applicaton/json"); //헤더값 중 content-type 정의
+        xhr.send(); //요청 전송
+
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                //정상적으로 응답되면 status가 200
+                const res = JSON.parse(xhr.response); //응답 데이터를 JSON.parse 함수로 JSON 객체로 변경
+                console.log(res); // 100개의 데이터를 받아옴
+            } else {
+                //에러 발생
+                console.error(xhr.status, xhr.statusText); //응답상태와 응답메시지를 출력
+            }
+        }
+    </script>
+</body>
+</html>

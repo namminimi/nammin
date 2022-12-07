@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>가격 <input type="text" id="price" name="price"></p>
+    <p>수량
+        <select name="number" id="number">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+        </select>
+    </p>
+    <p>
+        총가격 <input type="text" id="totalPrice" name="totalPrice">
+    </p>
+    <script>
+        let priceInput = document.querySelector("#price");  //#price 선택 -> priceInput에 변수선언
+        let selNumber = document.querySelector("#number");  //#number선택 -> selNumber에 변수선언
+        let totalPrice = document.querySelector("#totalPrice");  //totalPrice 선택 -> totalPrice 변수선언
+        let priceNumber;  //priceNumber 변수선언
+        priceInput.addEventListener("input", function(){  //priceInput  input 이벤트 
+            priceNumber = Number(this.value);  //priceInput value값을 숫자형으로 변환 -> priceNumber로
+            if(isNaN(priceNumber)) return;     //priceNumber가 isNaN으로 변환했을때(숫자가 아닌 문자) true 면 return false면 밑에
+            else {
+                sum()                         // sum함수 실행
+            }
+        })
+        function sum() {             //sum 함수
+            let total = priceNumber * selNumber.value    //selNumber.value(number/select 10.20.30) * priceNumber(위에 이벤트값) = total로 변수선언
+            totalPrice.value = total;                   //total 값은 totalPrice(input)으로 입력해줌
+        }
+
+          
+        selNumber.addEventListener("change", sum); // 셀렉트 value(10, 20, 30)가 변경되었을때 sum함수 실행
+    </script>
+</body>
+</html>

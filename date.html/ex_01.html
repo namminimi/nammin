@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="date">
+        <h2>기념일</h2>
+    </div>
+    <div id="cal">
+        <div id="text_input">
+            <input type="text" id="year" name="year">
+            <input type="text" id="month" name="month">
+            <input type="text" id="day" name="day">
+        </div>
+        <div id="btn">
+            <button>50일은?</button>
+            <button>100일은?</button>
+            <button>오늘은 몇일째?</button>
+        </div>
+        <p></p>
+    </div>
+    <script>
+        let date_num = document.querySelectorAll("#text_input input");
+        let year = document.querySelector("#year")
+        let month = document.querySelector("#month")
+        let day = document.querySelector("#day")
+        let btn = document.querySelectorAll("#btn button");
+        let p = document.querySelector("p");
+
+        
+        function years(){
+            date_num_cal = this.value;
+            console.log(date_num_cal)
+        }
+
+        month.addEventListener("input", function(){
+            date_num_cal = this.value;
+            console.log(date_num_cal)
+        })
+
+        day.addEventListener("input", function(){
+            date_num_cal = this.value;
+            console.log(date_num_cal)
+        })
+
+        year.addEventListener("input", years);
+
+        let someday = new Date(years());
+        console.log(someday);
+
+    </script>
+</body>
+</html>

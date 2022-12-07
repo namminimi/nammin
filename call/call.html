@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //기본 this는 window 바인딩
+        //객체.메소드() =>this는 객체를 바인딩
+        //dom이벤트 발생시 =>this는 이벤트를 발생시킨 dom을 바인딩(input이벤트에서 this는 input에 바인딩)
+        let stu = {
+            name: "gg",
+            age:30
+        }
+        
+        function printName(){
+            console.log(this.name)
+        }
+        function updateObj(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        printName.call(stu);
+        updateObj.call(stu, "aaa", 20);
+        
+        console.log(stu)
+        updateObj.apply(stu, ["bbb", 30]); //배열로 넘김
+        console.log(stu)
+
+        const numArr = [1, 2, 3, 4, 5];
+        //let maxNumber = Math.max(...numArr)
+        let maxNumber = Math.max.apply(null, numArr) //apply는 알아서 펼쳐줌(스프레드 효과가 있음)
+        //Math.max.apply(null, [1,2,3,4,5])
+        let maxNumber2 = Math.max.call(null, ...numArr)
+        //Math.max.call(null, 1, 2, 3, 4, 5)
+        console.log(maxNumber)
+        console.log(maxNumber2)
+        const aa = {
+            x: 50,
+            getX: function(){
+                return this.x;
+            }
+        }
+        //const newFun = aa.getX; 
+        const newFun = aa.getX;
+        const nnewFun = newFun.bind(aa);
+        //해석 newFun = function(){ return this.x ;}
+        //getX는 키  , getX value값 함수 호출 this.x 리턴값 가져오며 바라보는건 window이기때문에
+        //this.x = undefined값이나옴
+        
+        //console.log(newFun());
+    
+        console.log(newFun());
+        console.log(nnewFun());  
+        //getX키값이 담긴 newFun에 bind(aa)를 넣어주면 value값인 함수를 호출하고 this.x 돌려주는데 이 때 bind기능으로 
+        //this가 바라보는 값은 window가 아닌 객체 x(key):50(value)을 바라봄
+    </script>
+</body>
+</html>

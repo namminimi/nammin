@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="./js/main.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        li {
+            list-style: none;
+        }
+        #year {
+            margin-top: 20px;
+        }
+
+        #year button {
+            padding: 10px 60px;
+            background-color: #333;
+            border-radius: 5px;
+            border: 0;
+            color: #fff;
+            margin:5px;
+        }
+        .pro1 {
+            margin-top: 40px;
+        }
+
+        .pro {
+            display: flex;
+            justify-content: space-around;
+            width: 1200px;
+            padding: 10px 0;
+            border-top: 5px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            width: 1200px;
+            border-bottom: 1px solid #333;
+            padding: 10px 0;
+            padding-left: 190px;
+            padding-right: 160px;
+            
+        }
+        
+        
+
+    </style>
+</head>
+<body>
+    <h1>booklist</h1>
+    <div id="year">
+        <button class="yearBtn" data-key="year" data-value="2021년도">2021년도</button>
+        <button class="yearBtn" data-key="year" data-value="2020년도">2020년도</button>
+        <button class="yearBtn" data-key="year" data-value="2019년도">2019년도</button>
+        <button class="yearBtn" data-key="year" data-value="2018년도">2018년도</button>
+    </div>
+    <ul class="pro1">
+        <li class="pro">
+            <h2>글쓴이</h2>
+            <h2>제목</h2>
+            <h2>년도</h2>
+        </li>
+    </ul>
+    <ul class="items">
+        <li class="item">
+            <p>글쓴이</p>
+            <p>제목</p>
+            <p>년도</p>
+        </li>
+    </ul>
+</body>
+</html>

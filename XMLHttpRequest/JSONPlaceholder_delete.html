@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const xhr = new XMLHttpRequest(); //XMLHttpRequest 객체 생성
+        xhr.open("DELETE", "https://jsonplaceholder.typicode.com/posts/10"); //HTTP Method, URL정의
+        xhr.setRequestHeader("content-type", "application/json; charset=UTF-8"); // 헤더 값 중 content-type 정의
+        xhr.send(); //요청전송
+
+        xhr.onload = () => {
+            if(xhr.status === 200) {
+                // DELETE 요청이 정상적으로 완료되면 200
+                const res = JSON.parse(xhr.response); //응답 데이터를 JSON.parse 함수의 JSON 객체로 변경
+                console.log(res);
+            } else {
+                //에러발생
+                console.error(xhr.status, xhr.statusText); // 응답상태와 응답메시지를 출력
+            }
+        }
+    </script>
+</body>
+</html>

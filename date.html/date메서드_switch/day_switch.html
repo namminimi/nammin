@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let d = new Date();
+        let year = d.getFullYear();
+        let month = d.getMonth()+1;
+        let date = d.getDate();
+        let day = d.getDay();
+        let dayName = "";
+
+        console.log(day);
+       /*  console.log("오늘은" + year + "." + month + "." + date + "입니다" ); */
+        console.log(`오늘은 ${year}년도이고 ${month}월달이고 ${date}일입니다`)  //백틱이 format과 비슷함
+
+        switch (day) {
+            case 0 :
+                dayName = "일요일";
+                break;
+            case 1 :
+                dayName = "월요일";
+                break;
+            case 2 :
+                dayName = "화요일";
+                break;
+            case 3 :
+                dayName = "수요일";
+                break;
+            case 4 :
+                dayName = "목요일";
+                break;
+            case 5 :
+                dayName = "금요일";
+                break;
+            case 6 :
+                dayName = "토요일";
+                break;  
+            default :
+                dayName = "";
+                break;      
+        }
+        console.log(day);
+        console.log(dayName);
+    </script>
+</body>
+</html>

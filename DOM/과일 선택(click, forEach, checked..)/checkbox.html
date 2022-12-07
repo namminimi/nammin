@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>좋아하는 과일 선택하기</p>
+    <p>😊<input type="checkbox" name="fruits" value="😊"></p>
+    <p>🎉<input type="checkbox" name="fruits" value="🎉"></p>
+    <p>🤞<input type="checkbox" name="fruits" value="🤞"></p>
+    <p>🤷‍♀️<input type="checkbox" name="fruits" value="🤷‍♀️"></p>
+    <p><button id="btn">결과보기</button></p>
+    <p id="result"></p>
+    <script>
+        const btn = document.querySelector("#btn"); //btn버튼 선택/선언
+        btn.addEventListener("click", function(){ //클릭 이벤트 실행
+            let fruitsInputs;   //변수선언
+            fruitsInputs = document.querySelectorAll("input")  //input 전부 선택하고 fruitsInputs에 넣어줌
+            console.log(fruitsInputs);  //콘솔로 잘 되는지 검사
+
+            let str = "";  //str 변수 선언
+            fruitsInputs.forEach(input => {  //배열 반복문 forEach문 사용
+                //checked 기능을 쓰면 checkbox에 체크한 값이 입력됨
+               str = input.checked ? str + input.value : str;  //삼항연산자 체크박스에 체크했을때 "" + input값 아니면 ""값 str로 넘김
+            })
+            document.querySelector("#result").innerHTML = str; //str값을 선택한 노드 result에 넣어줌
+        })
+    </script>
+</body>
+</html>
